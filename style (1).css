@@ -1,0 +1,398 @@
+/* =========================================================
+   Mon CV — feuille de style
+   Nom : Tiziano LUMBROSO
+   Une section de commentaire par séance, dans l'ordre.
+   ========================================================= */
+
+/* ---- Séance 1 : charte et sélecteurs ---- */
+
+/* ============================================
+   RESET ET BASE DE LA PAGE
+   On enlève les marges par défaut du navigateur
+   et on définit la police + couleur de fond
+   pour TOUTE la page.
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* → "*" = sélecteur universel, cible TOUT.
+   margin: 0 et padding: 0 = supprime les espaces par défaut.
+   box-sizing: border-box = les paddings sont inclus dans la taille. */
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #eef2f7;
+  color: #2d2d2d;
+  line-height: 1.6;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 30px auto;
+}
+/* → "body" = toute la page visible.
+   font-family = police du texte (Segoe UI, sinon Arial).
+   background-color = couleur de fond gris clair bleuté.
+   color = couleur du texte (gris foncé).
+   line-height = espacement entre les lignes.
+   display: flex = mise en page flexible (aside à gauche, main à droite).
+   max-width + margin auto = centre la page et limite sa largeur. */
+
+/* ============================================
+   EN-TÊTE (header)
+   La bande en haut avec le nom, le titre
+   et le badge "Disponible".
+   ============================================ */
+header {
+  background-color: #1e3a5f;
+  color: #ffffff;
+  width: 100%;
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px 10px 0 0;
+}
+/* → background-color bleu foncé pour l'en-tête.
+   color blanc = le texte dedans sera blanc.
+   width: 100% = prend toute la largeur.
+   display: flex + align-items: center = aligne photo + texte sur la même ligne.
+   gap = espace entre la photo et le texte.
+   border-radius = coins arrondis en haut. */
+
+header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+}
+/* → La photo/avatar dans le header.
+   border-radius: 50% = rend l'image ronde.
+   border = bordure blanche autour. */
+
+header h1 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+/* → Le nom "Tiziano LUMBROSO".
+   font-size = taille du texte.
+   font-weight: bold = en gras. */
+
+header p {
+  font-size: 14px;
+  color: #c5d5e8;
+}
+/* → Le sous-titre et le badge sous le nom.
+   Couleur bleu clair pour contraster avec le fond sombre. */
+
+.badge-dispo {
+  background-color: #27ae60;
+  color: #fff;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: auto;
+}
+/* → Le badge vert "Disponible pour un stage".
+   margin-left: auto = le pousse tout à droite.
+   border-radius: 20px = forme de pilule arrondie. */
+
+/* ============================================
+   BARRE LATÉRALE (aside)
+   La colonne de gauche : Contact, Compétences,
+   Langues, Centres d'intérêt.
+   ============================================ */
+aside {
+  background-color: #1e3a5f;
+  color: #ffffff;
+  width: 35%;
+  padding: 25px;
+  border-radius: 0 0 0 10px;
+}
+/* → aside = la barre à gauche.
+   width: 35% = prend 35% de la largeur.
+   Même bleu foncé que le header pour un look uni.
+   border-radius en bas à gauche = coin arrondi. */
+
+aside h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #3a7bd5;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+  margin-top: 20px;
+  color: #ffffff;
+}
+/* → Les titres de section dans la barre (Contact, Compétences...).
+   text-transform: uppercase = TOUT EN MAJUSCULES.
+   letter-spacing = espace entre les lettres.
+   border-bottom = trait bleu en dessous du titre. */
+
+aside ul {
+  list-style: none;
+}
+/* → Enlève les puces (•) des listes dans la barre. */
+
+aside li {
+  padding: 4px 0;
+  font-size: 14px;
+}
+/* → Chaque élément de liste : un peu d'espace vertical. */
+
+aside a {
+  color: #7ec8e3;
+  text-decoration: none;
+}
+/* → Les liens (email, GitHub, LinkedIn) en bleu clair.
+   text-decoration: none = pas de soulignement. */
+
+aside a:hover {
+  text-decoration: underline;
+}
+/* → Quand on passe la souris sur un lien, il se souligne.
+   ":hover" = état au survol de la souris. */
+
+/* ============================================
+   JAUGES DE LANGUES
+   Les barres de progression pour les niveaux.
+   ============================================ */
+aside p {
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+/* → Le nom de chaque langue au-dessus de sa barre. */
+
+.jauge {
+  background-color: #2c4f7c;
+  border-radius: 6px;
+  height: 10px;
+  width: 100%;
+  margin-bottom: 6px;
+}
+/* → Le fond gris/bleu de la barre de jauge. */
+
+.barre {
+  height: 100%;
+  border-radius: 6px;
+}
+/* → La partie remplie de la barre. */
+
+.natif {
+  width: 100%;
+  background-color: #27ae60;
+}
+/* → Natif = barre verte remplie à 100%. */
+
+.intermediaire {
+  width: 60%;
+  background-color: #f39c12;
+}
+/* → Intermédiaire = barre orange remplie à 60%. */
+
+.debutant {
+  width: 30%;
+  background-color: #e74c3c;
+}
+/* → Débutant = barre rouge remplie à 30%. */
+
+/* ============================================
+   PARTIE PRINCIPALE (main)
+   La colonne de droite : Profil, Formation,
+   Expériences.
+   ============================================ */
+main {
+  background-color: #ffffff;
+  width: 65%;
+  padding: 25px 30px;
+  border-radius: 0 0 10px 0;
+}
+/* → main = la partie droite du CV.
+   width: 65% = prend le reste de la largeur.
+   background blanc pour contraster avec la barre bleue.
+   border-radius en bas à droite. */
+
+main h2 {
+  font-size: 18px;
+  color: #1e3a5f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #1e3a5f;
+  padding-bottom: 6px;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+/* → Les titres de section à droite (Profil, Formation...).
+   Même style que la barre mais en bleu foncé sur fond blanc. */
+
+main h2:first-child {
+  margin-top: 0;
+}
+/* → Le tout premier h2 ("Profil") n'a pas de marge en haut. */
+
+/* ============================================
+   ARTICLES (chaque formation / expérience)
+   ============================================ */
+article {
+  margin-bottom: 18px;
+}
+/* → Espace entre chaque bloc formation/expérience. */
+
+.entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+/* → L'en-tête de chaque article : titre à gauche, date à droite.
+   justify-content: space-between = pousse les éléments aux extrémités. */
+
+article h3 {
+  font-size: 15px;
+  color: #2d2d2d;
+}
+/* → Titre de chaque formation/expérience. */
+
+.date {
+  font-size: 13px;
+  color: #888;
+  white-space: nowrap;
+}
+/* → La date à droite (ex: "2026 — 2028").
+   white-space: nowrap = empêche la date de passer à la ligne. */
+
+article p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
+}
+/* → Description sous chaque formation/expérience. */
+
+/* ============================================
+   PIED DE PAGE (footer)
+   La petite bande tout en bas.
+   ============================================ */
+footer {
+  background-color: #1e3a5f;
+  color: #c5d5e8;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  border-radius: 0 0 10px 10px;
+}
+/* → Le footer en bas : même bleu que le header.
+   text-align: center = texte centré. */
+
+/* ============================================
+   RESPONSIVE — TABLETTE (écran ≤ 768px)
+   Le aside et le main passent en pleine largeur,
+   tout s'empile en colonne.
+   ============================================ */
+@media (max-width: 768px) {
+
+  body {
+    flex-direction: column;   /* empile header / aside / main / footer */
+    margin: 10px;             /* moins de marge sur les côtés */
+    max-width: 100%;
+  }
+
+  header {
+    flex-wrap: wrap;          /* permet au badge de passer en dessous */
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  .badge-dispo {
+    margin-left: 0;          /* ne pousse plus à droite */
+    margin-top: 10px;
+    width: fit-content;
+  }
+
+  aside {
+    width: 100%;             /* prend toute la largeur */
+    border-radius: 0;        /* plus de coins arrondis au milieu */
+  }
+
+  main {
+    width: 100%;             /* prend toute la largeur */
+    border-radius: 0;
+  }
+
+  .entete {
+    flex-direction: column;  /* titre au-dessus, date en dessous */
+    gap: 2px;
+  }
+
+  footer {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — PETIT MOBILE (écran ≤ 480px)
+   Ajustements supplémentaires pour les petits
+   téléphones.
+   ============================================ */
+@media (max-width: 480px) {
+
+  body {
+    margin: 0;               /* zéro marge, bord à bord */
+  }
+
+  header {
+    flex-direction: column;  /* photo, texte et badge empilés */
+    text-align: center;
+    padding: 15px;
+    border-radius: 0;
+  }
+
+  header img {
+    width: 65px;
+    height: 65px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  header p {
+    font-size: 13px;
+  }
+
+  .badge-dispo {
+    align-self: center;
+  }
+
+  aside {
+    padding: 20px 15px;
+  }
+
+  aside h2 {
+    font-size: 14px;
+  }
+
+  main {
+    padding: 20px 15px;
+  }
+
+  main h2 {
+    font-size: 16px;
+  }
+
+  article h3 {
+    font-size: 14px;
+  }
+
+  footer {
+    border-radius: 0;
+    font-size: 12px;
+  }
+}
